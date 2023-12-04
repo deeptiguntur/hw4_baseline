@@ -82,7 +82,6 @@ public class ExpenseTrackerModel {
       if (listener != null && !listeners.contains(listener)) {
           // Register the listener
           listeners.add(listener);
-          stateChanged();
           return true;
       }
       // Listener is either null or already registered
