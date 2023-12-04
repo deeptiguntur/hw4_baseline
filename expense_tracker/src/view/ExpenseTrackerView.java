@@ -243,7 +243,7 @@ public class ExpenseTrackerView extends JFrame implements ExpenseTrackerModelLis
   public void update(ExpenseTrackerModel model) {
       refreshTable(model.getTransactions());
       if (model.getMatchedFilterIndices().size() > 0) {
-	  highlightRows(model.getMatchedFilterIndices());
+	      highlightRows(model.getMatchedFilterIndices());
       }
   }
     
