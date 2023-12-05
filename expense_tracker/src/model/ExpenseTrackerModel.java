@@ -27,6 +27,7 @@ public class ExpenseTrackerModel {
     transactions.add(t);
     // The previous filter is no longer valid.
     matchedFilterIndices.clear();
+    // Calling stateChanged to update view from model
     stateChanged();
 
   }
@@ -35,6 +36,7 @@ public class ExpenseTrackerModel {
     transactions.remove(t);
     // The previous filter is no longer valid.
     matchedFilterIndices.clear();
+    // Calling stateChanged to update view from model
     stateChanged();
   }
 
@@ -56,6 +58,7 @@ public class ExpenseTrackerModel {
       // For encapsulation, copy in the input list 
       this.matchedFilterIndices.clear();
       this.matchedFilterIndices.addAll(newMatchedFilterIndices);
+      // Calling stateChanged to update view from model
       stateChanged();
   }
 
@@ -76,8 +79,6 @@ public class ExpenseTrackerModel {
    */   
   public boolean register(ExpenseTrackerModelListener listener) {
       // For the Observable class, this is one of the methods.
-      //
-      // TODO
       // Check if the listener is non-null and not already registered
       if (listener != null && !listeners.contains(listener)) {
           // Register the listener
@@ -89,24 +90,23 @@ public class ExpenseTrackerModel {
   }
 
   public void unregister(ExpenseTrackerModelListener listener) {
+      // Check if the listener is non-null and  already registered
       if (listener != null && listeners.contains(listener)) {
-          // Register the listener
+          // Remove the listener
           listeners.remove(listener);
       }
   }
 
   public int numberOfListeners() {
       // For testing, this is one of the methods.
-      //
-      //TODO
+      // Getting count of listeners
       int count = listeners.size();
       return count;
   }
 
   public boolean containsListener(ExpenseTrackerModelListener listener) {
       // For testing, this is one of the methods.
-      //
-      //TODO
+      // Checking if listener exists
       if (listeners.contains(listener)) {
           return true;
       }
@@ -115,8 +115,6 @@ public class ExpenseTrackerModel {
 
   protected void stateChanged() {
       // For the Observable class, this is one of the methods.
-      //
-      //TODO
       // Notify all registered observers (listeners) about the state change
       for (ExpenseTrackerModelListener listener : listeners) {
         listener.update(this);
