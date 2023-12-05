@@ -89,6 +89,15 @@ public class ExpenseTrackerModel {
       return false;
   }
 
+  
+  /**
+   * Unregisters the given ExpenseTrackerModelListener for
+   * state change events.
+   *
+   * @param listener The ExpenseTrackerModelListener to be unregistered
+   * @return If the listener is non-null and already registered,
+   *         then it will unregister
+   */
   public void unregister(ExpenseTrackerModelListener listener) {
       // Check if the listener is non-null and  already registered
       if (listener != null && listeners.contains(listener)) {
@@ -97,6 +106,11 @@ public class ExpenseTrackerModel {
       }
   }
 
+  /**
+   * Returns the number of listeners registered
+   *
+   * @return Will return the size of the listener array
+   */
   public int numberOfListeners() {
       // For testing, this is one of the methods.
       // Getting count of listeners
@@ -104,6 +118,12 @@ public class ExpenseTrackerModel {
       return count;
   }
 
+  /**
+   * Checks if listener is already registered
+   *
+   * @param listener The ExpenseTrackerModelListener to be checked
+   * @return Will return True if listener is registered or else false
+   */
   public boolean containsListener(ExpenseTrackerModelListener listener) {
       // For testing, this is one of the methods.
       // Checking if listener exists
@@ -113,6 +133,9 @@ public class ExpenseTrackerModel {
       return false;
   }
 
+  /**
+   * For every listener it will call the update function to notify about the changes
+   */
   protected void stateChanged() {
       // For the Observable class, this is one of the methods.
       // Notify all registered observers (listeners) about the state change
